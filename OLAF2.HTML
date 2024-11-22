@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olaf - O Gato da Família Viana</title>
+    <style>
+        /* Estilo geral */
+        body {
+            font-family: 'Abadi Extra Light', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background: linear-gradient(to bottom, #d8edf2, #d8edf2);
+            overflow-x: hidden;
+        }
+
+        /* Neve animada */
+        .snow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .snowflake {
+            position: absolute;
+            top: -10px;
+            background-color: #fff;
+            border-radius: 50%;
+            opacity: 8;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+            }
+        }
+
+        /* Cabeçalho */
+        header {
+            background-color: #99e7ff;
+            padding: 20px;
+            text-align: center;
+            z-index: 2;
+            position: relative;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            color: #adabaa;
+        }
+        header p {
+            font-size: 1.2em;
+            margin: 5px 0 0;
+        }
+
+        /* Conteúdo */
+        section {
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 800px;
+            background-color: #cffffb;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            position: relative;
+            z-index: 2;
+        }
+        h2 {
+            color: #0a0a0a;
+            text-align: center;
+        }
+        p {
+            line-height: 1.6;
+            text-align: justify;
+        }
+        .image-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .image-container img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #949392;
+            color: #0d0101;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Estilizando o contêiner do QR Code */
+        .qr-container {
+            text-align: center; /* Centraliza o conteúdo dentro do contêiner */
+            margin-top: 30px; /* Adiciona margem no topo */
+            padding: 20px;
+        }
+
+        /* Estilizando a imagem do QR Code */
+        .qr-image {
+            max-width: 150px; /* Reduz o tamanho máximo da imagem (ajuste conforme necessário) */
+            width: 100%; /* Garante que a imagem não ultrapasse o tamanho máximo definido */
+            height: auto; /* Mantém a proporção da imagem */
+            margin-bottom: 15px; /* Espaço abaixo da imagem */
+        }
+
+        /* Estilizando o texto */
+        .qr-text {
+            font-size: 1.2em; /* Define o tamanho da fonte */
+            color: #8b4513; /* Define a cor do texto */
+            font-weight: bold; /* Deixa o texto em negrito */
+            margin-top: 10px; /* Adiciona margem no topo do texto */
+        }
+    </style>
+</head>
+<body>
+    <!-- Neve animada -->
+    <div class="snow" id="snow"></div>
+
+    <header>
+        <h1>Olaf - O Gato da Família Viana</h1>
+        <p>Um gato branco, grande e gordox!</p>
+    </header>
+    <section>
+        <h2>Conheça o Olaf</h2>
+        <p>Olaf é um gato branco e grande, conhecido por ser extremamente preguiçoso, mas ao mesmo tempo, incrivelmente adorável. Ele é o xodó da Família Viana, que não consegue resistir ao seu charme felino. Olaf passa os dias se espreguiçando pela casa, pedindo carinho e, claro, comendo!</p>
+        <div class="image-container">
+            <img src="C:\Users\User\Downloads\SITE OLAF\imagens\imagem.jpg.jpg" alt="Olaf com chapéu de Papai Noel">
+        </div>
+    </section>
+    <section>
+        <h2>Curiosidades Sobre Olaf</h2>
+        <ul>
+            <li>❤️ Ele é muito carinhoso e adora receber atenção.</li>
+            <li>🍗 Ama ração molhada e não resiste a um bom patê!</li>
+            <li>💤 É um verdadeiro especialista em tirar sonecas.</li>
+            <li>🍴 É comilão e sempre está à procura de um petisco.</li>
+            <li>😻 Apesar de ser gordão, Olaf sabe como conquistar qualquer um com seu olhar doce.</li>
+        </ul>
+    </section>
+    <section id="qr-code">
+        <div class="qr-container">
+            <img src="C:\Users\User\Downloads\SITE OLAF\qrcode\qrcode.jpg" alt="QR Code para doações" class="qr-image">
+            <p class="qr-text">Quem quiser patrocinar o sache e o banho de natal, acesse o QR Code acima :) MEEEAUUU </p>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2024 Família Viana. Olaf manda um MEAUUUU especial para você!</p>
+    </footer>
+
+    <script>
+        // Criar flocos de neve animados
+        const snowContainer = document.getElementById('snow');
+        for (let i = 0; i < 100; i++) {
+            const snowflake = document.createElement('div');
+            const size = Math.random() * 5 + 2; // Tamanho aleatório
+            snowflake.classList.add('snowflake');
+            snowflake.style.width = `${size}px`;
+            snowflake.style.height = `${size}px`;
+            snowflake.style.left = `${Math.random() * 100}vw`;
+            snowflake.style.animationDuration = `${Math.random() * 3 + 2}s`;
+            snowflake.style.animationDelay = `${Math.random() * 5}s`;
+            snowContainer.appendChild(snowflake);
+        }
+    </script>
+</body>
+</html>
